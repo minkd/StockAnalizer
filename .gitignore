@@ -1,0 +1,8 @@
+.idea
+node_modules
+coverage
+.DS_Store
+dockercfg
+oms-api.iml
+old/
+docs/

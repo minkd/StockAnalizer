@@ -1,0 +1,41 @@
+{
+  "name": "quandl-cap-one",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "tests": "gulp tests",
+    "unit-tests": "gulp unit",
+    "integration-tests": "gulp integration",
+    "unit-coverage": "gulp unit-coverage",
+    "coverage": "gulp coverage",
+    "gen-docs": "gulp apidoc"
+  },
+  "author": "Derrick Mink",
+  "license": "ISC",
+  "dependencies": {
+    "async": "latest",
+    "d3": "^4.12.2",
+    "express": "^4.16.2",
+    "http-status": "latest",
+    "quandl": "0.0.6",
+    "request": "^2.83.0",
+    "request-promise": "^4.2.2",
+    "winston": "^2.4.0"
+  },
+  "devDependencies": {
+    "jshint": "^2.9.5",
+    "chai": "^4.1.2",
+    "gulp": "^3.9.1",
+    "gulp-apidoc": "^0.2.6",
+    "gulp-coveralls": "^0.1.4",
+    "gulp-exit": "0.0.2",
+    "gulp-istanbul": "^1.1.1",
+    "gulp-jsdoc3": "^1.0.1",
+    "gulp-jshint": "^2.0.4",
+    "gulp-mocha": "2.1.2",
+    "mocha": "^3.5.3",
+    "sinon": "^4.1.4"
+  }
+}
