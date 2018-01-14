@@ -1,17 +1,11 @@
+const config = require("./config");
 const path = require('path');
 const express = require('express');
 const app = express();
 
-
+// Initialize 3rd party services
 const services = require('./services/index');
-
-services.init({
-    Quandl: {
-        api_endpoint: process.env.QUANDL_API_ENDPOINT || "https://www.quandl.com/api",
-        auth_token: process.env.QUANDL_AUTH_TOKEN || "s-GMZ_xkw6CrkGYUWs1p",
-        api_version: process.env.QUANDL_API_VERSION || "v3"
-    }
-});
+services.init({ Quandl: config });
 
 /**
  * @api {get} / Application Name

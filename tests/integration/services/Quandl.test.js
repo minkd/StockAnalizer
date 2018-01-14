@@ -1,13 +1,11 @@
 const should = require('chai').should();
-
+const config = require('../../../src/config');
 const Quandl = require('../../../src/services/Quandl');
-let quandl;
+
+let quandl, fields;
 before(function () {
-    const key = process.env.QUANDL_AUTH_TOKEN;
-    if (!key) {
-        throw Error('Must provide quandl api-key: QUANDL_AUTH_TOKEN=<api-key>');
-    }
-    quandl = new Quandl("https://www.quandl.com/api", key, "v3");
+    quandl = new Quandl(config.api_endpoint, config.auth_token, config.api_version);
+    fields = ['ticker', 'date', 'open', 'close', 'volume'];
 });
 
 describe('Quandle Integration Test Suite', function () {
@@ -30,7 +28,7 @@ describe('Quandle Integration Test Suite', function () {
     });
 
     it('Should return small datatable query, no recursion should occur', function (done) {
-        quandl.getDataTable("WIKI", "PRICES", options)
+        quandl.getDataTable("WIKI", "PRICES", options, fields)
             .then(function (res) {
                 res.should.be.an('array');
                 res[0].should.have.property('ticker');
@@ -55,7 +53,7 @@ describe('Quandle Integration Test Suite', function () {
         // There are 20 weekdays of trading in above date range
         const numWeekDaysInRange = 20;
 
-        quandl.getDataTable("WIKI", "PRICES", options)
+        quandl.getDataTable("WIKI", "PRICES", options, fields)
             .then(function (res) {
                 res.should.be.an('array');
                 res.length.should.be.eq(numWeekDaysInRange);
