@@ -106,7 +106,7 @@ StockAnalyzer has the follow variables:
 | PORT | Service Port |  | 3600 | The port to expose for this API. |
 | QUANDL_API_ENDPOINT | Quandl Endpoint | | https://www.quandl.com/api | The Quandl API endpoint. |
 | QUANDL_AUTH_TOKEN | Api Key | X | | Should be based on environment |
-| QUANDL_API_VERSION | Quandl API version | X | v3 | The version of the Quandl API we will be using |
+| QUANDL_API_VERSION | Quandl API version |  | v3 | The version of the Quandl API we will be using |
 
 
 
