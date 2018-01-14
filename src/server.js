@@ -1,9 +1,13 @@
+const logger = require("./lib/Logger");
 const config = require("./config");
 const path = require('path');
 const express = require('express');
 const app = express();
 
-// Initialize 3rd party services
+logger.debug("Setup Morgan logger");
+app.use(require('morgan')("combined", { "stream": logger.stream }));
+
+logger.debug("Initialize 3rd party services");
 const services = require('./services/index');
 services.init({ Quandl: config });
 
@@ -62,4 +66,4 @@ app.use(require('./server/routes/common/invalidRoute'));
 app.use('/docs', express.static(path.join(__dirname, '../docs/api')));
 
 // Start the server
-app.listen(process.env.PORT || 3600, () => console.log(`Listening on port ${process.env.PORT || 3600}!`));
+app.listen(config.port, () => logger.info(`Listening on port ${config.port}!`));

@@ -1,13 +1,23 @@
-'use strict';
-const winston = require('winston');
+const config = require('../config');
 
-const logger = new (winston.Logger)({
+const winston = require('winston');
+winston.emitErrs = true;
+
+const logger = new winston.Logger({
     transports: [
-        // colorize the output to the console
-        new (winston.transports.Console)({
-            colorize: true,
+        new winston.transports.Console({
+            level: config.log_level ,
+            handleExceptions: true,
+            json: false,
+            colorize: true
         })
-    ]
+    ],
+    exitOnError: false
 });
 
 module.exports = logger;
+module.exports.stream = {
+    write: function(message, encoding){
+        logger.info(message);
+    }
+};

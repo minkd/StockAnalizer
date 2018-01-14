@@ -19,6 +19,7 @@
     "d3": "^4.12.2",
     "express": "^4.16.2",
     "http-status": "latest",
+    "morgan": "^1.9.0",
     "quandl": "0.0.6",
     "request": "^2.83.0",
     "request-promise": "^4.2.2",

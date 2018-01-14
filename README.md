@@ -127,7 +127,6 @@ StockAnalyzer has the follow variables:
 | QUANDL_API_VERSION | Quandl API version |  | v3 | The version of the Quandl API we will be using |
 
 
-
 ### External dependencies
 
 **Quandl**: The external data provider.

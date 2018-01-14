@@ -1,4 +1,5 @@
 'use strict';
+const logger = require('../lib/Logger');
 const async = require('async');
 const request = require("request-promise");
 const {DataTableResultSet} = require('../server/model/DataTableResultSet');
@@ -102,6 +103,7 @@ class Quandl {
             useQuerystring: true
         };
 
+        logger.debug(req);
         return request(req)
     }
 }
