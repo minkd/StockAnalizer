@@ -46,7 +46,7 @@ All logging is through [Winston](https://github.com/winstonjs/winston) which eas
 ## Getting started
 
 
-### [Sign up for Quandl to get an API key.](https://docs.quandl.com/docs/getting-started#section-getting-an-api-key)
+#### [Sign up for Quandl to get an API key.](https://docs.quandl.com/docs/getting-started#section-getting-an-api-key)
 
 #### Clone StockAnalyzer
 ```
@@ -55,7 +55,6 @@ cd source_dir_to_stock_analizer
 ```
 
 #### Install dependencies
-
 ```
 npm install
 ```
@@ -73,10 +72,17 @@ QUANDL_AUTH_TOKEN=<api-key> \
 npm run integration-tests
 ```
 
-##### Code Coverage
+#### Code Coverage
+##### Unit Coverage
+```
+npm run unit-coverage
+```
 
-
-
+##### Total Coverage
+```
+QUANDL_AUTH_TOKEN=<api-key> \
+npm run coverage
+```
 
 #### Starts node server interactively (without docker)
 ```
@@ -84,13 +90,25 @@ PORT=3600 \
 QUANDL_API_ENDPOINT=https://www.quandl.com/api \
 QUANDL_AUTH_TOKEN=<api-key> \
 QUANDL_API_VERSION=v3 \
-node index.js
+npm start
 ```
 
 #### Verify the service works as expected
 ```
 curl http://localhost:3600
 curl http://localhost:3600/health
+```
+
+## Docker
+
+### Build
+```
+ cd /path/to/project/root
+ docker build . -t stock_analyzer
+```
+### Run
+```
+ docker run -p 3600:3600 stock_analyzer
 ```
 
 
