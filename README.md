@@ -1,3 +1,30 @@
+[![Coverage Status](https://coveralls.io/repos/github/minkd/StockAnalizer/badge.svg?branch=master)](https://coveralls.io/github/minkd/StockAnalizer?branch=master)
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [StockAnalyzer - Calculate Stock Trading Statistics](#stockanalyzer---calculate-stock-trading-statistics)
+  - [Key concepts](#key-concepts)
+    - [Architecture](#architecture)
+    - [logging](#logging)
+  - [Getting started](#getting-started)
+    - [Sign up for Quandl to get an API key.](#sign-up-for-quandl-to-get-an-api-key)
+      - [Clone StockAnalyzer](#clone-stockanalyzer)
+      - [Install dependencies](#install-dependencies)
+      - [Run Tests](#run-tests)
+        - [Unit Tests](#unit-tests)
+        - [Integration Tests](#integration-tests)
+        - [Code Coverage](#code-coverage)
+      - [Starts node server interactively (without docker)](#starts-node-server-interactively-without-docker)
+      - [Verify the service works as expected](#verify-the-service-works-as-expected)
+  - [Production](#production)
+    - [Configuration](#configuration)
+    - [External dependencies](#external-dependencies)
+    - [Operation](#operation)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # StockAnalyzer - Calculate Stock Trading Statistics
 
 StockAnalyzer is an application which focuses on performing calculations and statics on historic stock market prices.
@@ -32,6 +59,24 @@ cd source_dir_to_stock_analizer
 ```
 npm install
 ```
+
+#### Run Tests
+
+##### Unit Tests
+```
+npm run unit-tests
+```
+
+##### Integration Tests
+```
+QUANDL_AUTH_TOKEN=<api-key> \
+npm run integration-tests
+```
+
+##### Code Coverage
+
+
+
 
 #### Starts node server interactively (without docker)
 ```
