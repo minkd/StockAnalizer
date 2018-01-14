@@ -28,6 +28,8 @@ module.exports = (req, res) => {
     const options = {};
 
     if (req.query.security) options['ticker[]'] = req.query.security;
+    else res.status(status.BAD_REQUEST).send({reason: "A least on security is required"});
+
     if (req.query.date) options['date'] = req.query.date;
     if (req.query.start_date) options['date.gte'] = req.query.start_date;
     if (req.query.end_date) options['date.lte'] = req.query.end_date;
