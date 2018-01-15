@@ -148,15 +148,11 @@ function maxDailyRollupFormat(d3ResultSet) {
  * prices.
  *
  * @param resultSet { DataTableResultSet }
- * @returns {{date: date, daily_max: number}}
+ * @returns {{date: string, daily_max: number}}
  */
 function maxProfit(resultSet) {
 
-    if (Array.isArray(resultSet) && resultSet.length > 0) {
-
-        let maxProfit = resultSet[0].close - resultSet[0].open;
-        let maxProfitDate = resultSet[0].date;
-
+        let maxProfit = 0, maxProfitDate = "";
         resultSet.forEach((result) => {
             if (result.close - result.open > maxProfit) {
                 maxProfit = result.close - result.open;
@@ -168,7 +164,6 @@ function maxProfit(resultSet) {
             date: maxProfitDate,
             daily_max: maxProfit
         };
-    }
 }
 
 /**

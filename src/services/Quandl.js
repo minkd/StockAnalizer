@@ -52,6 +52,8 @@ class Quandl {
                                 }
 
                                 Object.assign(opts, {"qopts.cursor_id": currResult.meta.next_cursor_id})
+                            } else {
+                                reject({ error: 'Unexpected response from Quandle: ' + res});
                             }
                         })
                         .then(cb)
