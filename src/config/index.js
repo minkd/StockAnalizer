@@ -1,23 +1,44 @@
-const settings = {};
+const defaults = require('./defaults');
 
-if (process.env.SERVICE_NAME) settings.port = process.env.SERVICE_NAME;
-else settings.name = "StockAnalyzer";
+class Config {
 
-if (process.env.PORT) settings.port = process.env.PORT;
-else settings.port = 3600;
+    constructor(settings) {
 
-if (process.env.LOG_LEVEL) settings.port = process.env.LOG_LEVEL;
-else settings.log_level = "info";
+        this.setServiceName(settings.SERVICE_NAME || defaults.service_name);
+        this.setServicePort(settings.SERVICE_PORT || defaults.service_port);
+        this.setLogLevel(settings.LOG_LEVEL || defaults.logging_level);
+        this.setQuandlApiEndpoint(settings.QUANDL_API_ENDPOINT || defaults.quandl_api_endpoint);
+        this.setQuandlApiVersion(settings.QUANDL_API_VERSION || defaults.quandl_api_version);
 
-if (process.env.QUANDL_API_ENDPOINT) settings.api_endpoint = process.env.QUANDL_API_ENDPOINT;
-else settings.api_endpoint = "https://www.quandl.com/api";
+        if (settings.QUANDL_AUTH_TOKEN) this.setQuandlAuthToken(settings.QUANDL_AUTH_TOKEN);
+        else throw Error("QUANDL_AUTH_TOKEN is not set");
 
-if (process.env.QUANDL_API_VERSION) settings.api_version = process.env.QUANDL_API_VERSION;
-else settings.api_version = "v3";
+    }
 
-if (process.env.QUANDL_AUTH_TOKEN) settings.auth_token = process.env.QUANDL_AUTH_TOKEN;
-else throw Error("Must provide {QUANDL_AUTH_TOKEN}");
+    setServiceName(serviceName){
+        this.service_name = serviceName;
+    }
 
+    setServicePort(servicePort){
+        this.service_port = servicePort;
+    }
 
+    setLogLevel(logLevel){
+        this.log_level = logLevel;
+    }
 
-module.exports = settings;
+    setQuandlApiEndpoint(apiEndpoint){
+        this.api_endpoint = apiEndpoint;
+    }
+
+    setQuandlApiVersion(apiVersion){
+        this.api_version = apiVersion;
+    }
+
+    setQuandlAuthToken(authToken){
+        this.auth_token = authToken
+    }
+
+}
+
+module.exports = Config;

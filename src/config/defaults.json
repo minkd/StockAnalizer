@@ -1,0 +1,7 @@
+{
+  "service_name": "StockAnalyser",
+  "service_port": "3600",
+  "logging_level": "info",
+  "quandl_api_endpoint": "https://www.quandl.com/api",
+  "quandl_api_version": "v3"
+}

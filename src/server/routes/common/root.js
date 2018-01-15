@@ -1,3 +1,4 @@
+const config = require('../../../config');
 const status = require('http-status');
 
 /**
@@ -12,5 +13,5 @@ const status = require('http-status');
  * {"service_name":"StockAnalyzer!!"}
  */
 module.exports = (req, res) => {
-    res.status(status.OK).send({ service_name: 'StockAnalyzer!!'} );
+    res.status(status.OK).send({ service_name: config.service_name} );
 };

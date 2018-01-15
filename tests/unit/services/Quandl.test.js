@@ -28,7 +28,6 @@ describe('ResultSet', function () {
                 result.should.be.an('undefined');
             })
             .catch(function(error){
-                console.log(error)
                 error.should.have.property('error')
             })
     });

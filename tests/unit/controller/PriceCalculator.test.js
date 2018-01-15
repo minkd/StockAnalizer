@@ -10,13 +10,9 @@ describe('PriceCalculator Test Suite', function () {
     it('Should show average monthly open and close prices', function () {
         const averageMonthlyRollup = PriceCalculator.averageMonthlyRollup(new DataTableResultSet((dataTable)).get());
 
-        console.log(JSON.stringify(averageMonthlyRollup))
         averageMonthlyRollup.should.be.an('array');
         averageMonthlyRollup[0].should.have.property("ticker");
         averageMonthlyRollup[0]["ticker"].should.eql("TEST");
-
-        console.log(averageMonthlyRollup[0])
-
         averageMonthlyRollup[0].should.eql({
             ticker: 'TEST',
             monthly_stats:

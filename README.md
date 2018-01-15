@@ -86,7 +86,8 @@ npm run coverage
 
 #### Starts node server interactively (without docker)
 ```
-PORT=3600 \
+SERVICE_NAME=StockAnalyzer \
+SERVICE_PORT=3600 \
 QUANDL_API_ENDPOINT=https://www.quandl.com/api \
 QUANDL_AUTH_TOKEN=<api-key> \
 QUANDL_API_VERSION=v3 \
@@ -121,7 +122,8 @@ StockAnalyzer has the follow variables:
 
 | Variable | Description | Required? | Default Value | Comments |
 | --- | --- | :---: | --- | --- |
-| PORT | Service Port |  | 3600 | The port to expose for this API. |
+| SERVICE_NAME | Service Name |  | StockAnalyzer | The name of this service. |
+| SERVICE_PORT | Service Port |  | 3600 | The port to expose for this API. |
 | QUANDL_API_ENDPOINT | Quandl Endpoint | | https://www.quandl.com/api | The Quandl API endpoint. |
 | QUANDL_AUTH_TOKEN | Api Key | X | | Should be based on environment |
 | QUANDL_API_VERSION | Quandl API version |  | v3 | The version of the Quandl API we will be using |

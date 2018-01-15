@@ -1,6 +1,8 @@
 const should = require('chai').should();
-const config = require('../../../src/config');
 const Quandl = require('../../../src/services/Quandl');
+
+const Config = require('../../../src/config');
+const config = new Config(process.env);
 
 let quandl, fields;
 before(function () {
@@ -53,7 +55,7 @@ describe('Quandle Integration Test Suite', function () {
         // There are 20 weekdays of trading in above date range
         const numWeekDaysInRange = 20;
 
-        quandl.getDataTable("WIKI", "PRICES", options, fields)
+        quandl.getDataTable("WIKI", "PRICES", options)
             .then(function (res) {
                 res.should.be.an('array');
                 res.length.should.be.eq(numWeekDaysInRange);

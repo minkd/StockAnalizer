@@ -1,12 +1,10 @@
-const config = require('../config');
-
 const winston = require('winston');
 winston.emitErrs = true;
 
 const logger = new winston.Logger({
     transports: [
         new winston.transports.Console({
-            level: config.log_level ,
+            level: process.env.LOG_LEVEL || "info",
             handleExceptions: true,
             json: false,
             colorize: true
@@ -17,7 +15,7 @@ const logger = new winston.Logger({
 
 module.exports = logger;
 module.exports.stream = {
-    write: function(message, encoding){
+    write: function (message) {
         logger.info(message);
     }
 };
