@@ -70,5 +70,6 @@ app.use(require('./server/routes/common/invalidRoute'));
 // A route to publish api documentation
 app.use('/docs', express.static(path.join(__dirname, '../docs/api')));
 
+
 // Start the server
 app.listen(config.service_port, () => logger.info(`${config.service_name} listening on port ${config.service_port}!`));
